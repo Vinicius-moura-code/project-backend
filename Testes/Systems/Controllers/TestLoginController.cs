@@ -38,9 +38,15 @@ namespace Testes.Systems.Controllers
         {
 
             var mockUser = new Mock<IAppLogin>();
-            mockUser.Setup(service => service.Login(_userRegistered.Username, _userRegistered.Password));
+            var service = new LoginController(mockUser.Object);
 
-            mockUser.Object.Login(_userRegistered.Username, _userRegistered.Password).Should().BeOfType<OkObjectResult>();
+            var result = service.Authenticate(_userRegistered) as ObjectResult;
+            //var actualValue = result.Value;
+
+            Assert.IsType<OkObjectResult>(result);
+            Assert.Equal(HttpStatusCode.OK, (HttpStatusCode)result.StatusCode);
+
+            //mockUser.Object.Login(_userRegistered.Username, _userRegistered.Password).Should().BeOfType<OkObjectResult>();
         }
 
         [Fact]
