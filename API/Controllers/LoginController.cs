@@ -15,19 +15,19 @@ namespace API.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<dynamic>> Authenticate([FromBody] UserDto model)
+        public IActionResult Authenticate([FromBody] UserDto model)
         {
 
             var token = _appLogin.Login(model.Username, model.Password);
 
             if (token == null)
-                return NotFound(new { message = "Usuário ou senha inválidos" });
+                return NotFound();// return NotFound(new { message = "Usuário ou senha inválidos" });
 
-            return new
+            return new ObjectResult(new
             {
                 user = token[0].Item1,
                 token = token[0].Item2
-            };
+            });
         }
 
     }

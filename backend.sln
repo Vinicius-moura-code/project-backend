@@ -3,17 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32616.157
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API", "API\API.csproj", "{6CAF90A0-E366-46B2-8F63-944BF4CFD1C7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API", "API\API.csproj", "{6CAF90A0-E366-46B2-8F63-944BF4CFD1C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Application\Application.csproj", "{41E02EDD-003D-431C-9BAE-F6BA0BA75BAA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "Application\Application.csproj", "{41E02EDD-003D-431C-9BAE-F6BA0BA75BAA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{C5E31515-00D4-4BDF-B6A8-58B02342BEA1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{C5E31515-00D4-4BDF-B6A8-58B02342BEA1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{4147C9EB-36CC-4FA3-8DA1-7291DFA9F6C4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{4147C9EB-36CC-4FA3-8DA1-7291DFA9F6C4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain.Core", "Domain.Core\Domain.Core.csproj", "{5E177D13-1EE9-4F19-94D0-0776AFCE1AC3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain.Core", "Domain.Core\Domain.Core.csproj", "{5E177D13-1EE9-4F19-94D0-0776AFCE1AC3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain.Services", "Domain.Services\Domain.Services.csproj", "{BA94FFB3-6137-44E2-8E15-64152B3A1E63}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain.Services", "Domain.Services\Domain.Services.csproj", "{BA94FFB3-6137-44E2-8E15-64152B3A1E63}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testes", "Testes\Testes.csproj", "{E516D3BD-8BA2-486B-8ABB-A9FABD12CB45}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{BA94FFB3-6137-44E2-8E15-64152B3A1E63}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA94FFB3-6137-44E2-8E15-64152B3A1E63}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BA94FFB3-6137-44E2-8E15-64152B3A1E63}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E516D3BD-8BA2-486B-8ABB-A9FABD12CB45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E516D3BD-8BA2-486B-8ABB-A9FABD12CB45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E516D3BD-8BA2-486B-8ABB-A9FABD12CB45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E516D3BD-8BA2-486B-8ABB-A9FABD12CB45}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
