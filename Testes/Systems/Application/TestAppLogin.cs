@@ -2,6 +2,7 @@
 using Application.Dto;
 using Application.Interfaces;
 using Application.Mapper;
+using AutoFixture;
 using AutoMapper;
 using Domain.Core.Interfaces.Services;
 using Domain.Services;
@@ -18,20 +19,16 @@ namespace Testes.Systems.Application
 {
     public class TestAppLogin
     {
-        private readonly IMapper _mapper;
+        private static Fixture _fixture;
+
+        private Mock<IMapper> _mapper;
+        private Mock<ITokenService> _tokenService;
 
         public TestAppLogin()
         {
-            if (_mapper == null)
-            {
-                var mappingConfig = new MapperConfiguration(mc =>
-                {
-                    mc.AddProfile(new DtoToModelMappingUser());
-                    mc.AddProfile(new  ModelToDtoMappingUser());
-                });
-                IMapper mapper = mappingConfig.CreateMapper();
-                _mapper = mapper;
-            }
+            _fixture = new Fixture();
+            _tokenService = new Mock<ITokenService>();
+            _mapper = new Mock<IMapper>();
         }
 
         private static UserDto _userRegistered = new UserDto()
@@ -54,15 +51,18 @@ namespace Testes.Systems.Application
         [Fact]
         public void TestLoginAppUserRegistered()
         {
+            //_tokenService.Setup(x => x.GetUser(_userRegistered.Username, _userRegistered.Password)).Returns();
 
-            var mockUser = new Mock<ITokenService>();
-            mockUser.Setup(service => service.GetUser(_userRegistered.Username, _userRegistered.Password));
+            //var mockUser = new Mock<ITokenService>();
+            _tokenService.Setup(service => service.GetUser(_userRegistered.Username, _userRegistered.Password));
             
-            var service = new AppLogin(mockUser.Object, _mapper);
+            var service = new AppLogin(_tokenService.Object, _mapper.Object);
             
             var result =  service.Login(_userRegistered.Username, _userRegistered.Password);
 
             Assert.IsType<(UserDto?, string)>(result);
+
+
         }
 
         [Fact]
@@ -70,7 +70,7 @@ namespace Testes.Systems.Application
         {
 
             var mockUser = new Mock<ITokenService>();
-            var service = new AppLogin(mockUser.Object, _mapper);
+            var service = new AppLogin(mockUser.Object, _mapper.Object);
 
             var result = service.Login(_userNotRegistered.Username, _userNotRegistered.Password);
 
